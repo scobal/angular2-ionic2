@@ -13,6 +13,25 @@ var ionic_angular_1 = require('ionic-angular');
 var AppComponent = (function () {
     function AppComponent(alertCtrl) {
         this.alertCtrl = alertCtrl;
+        var confirm = alertCtrl.create({
+            title: 'Use this lightsaber?',
+            message: 'Do you agree to use this lightsaber to do good across the intergalactic galaxy?',
+            buttons: [
+                {
+                    text: 'Agree',
+                    handler: function () {
+                        confirm.dismiss();
+                        return false;
+                    }
+                }, {
+                    text: 'Disagree',
+                    handler: function () {
+                        console.log('Disagree clicked');
+                    }
+                }
+            ]
+        });
+        confirm.present();
     }
     AppComponent = __decorate([
         core_1.Component({
